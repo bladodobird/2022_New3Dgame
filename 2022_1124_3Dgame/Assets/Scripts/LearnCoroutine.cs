@@ -1,50 +1,62 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 namespace YIZU
 {
     /// <summary>
-    /// ¨ó¦Pµ{§Ç¡AÂ²ºÙ¨óµ{ coroutine
-    /// ¥Øªº : Åıµ{¦¡°±¯d¹F¨ìµ¥«İªº®ÄªG
+    /// å”åŒç¨‹åºï¼Œç°¡ç¨±å”ç¨‹ coroutine
+    /// ç›®çš„ : è®“ç¨‹å¼åœç•™é”åˆ°ç­‰å¾…çš„æ•ˆæœ
     /// </summary>
     public class LearnCoroutine : MonoBehaviour
     {
-        /// ¨óµ{¨Ï¥Î¥|­Ó±ø¥ó
-        /// 1.¤Ş¥Î©R¦WªÅ¶¡ System.Collections
-        /// 2.©w¸q¤@­Ó¶Ç¦^ IEnumerator ªº¤èªk
-        /// 3.¤èªk¤º¥²¶·¨Ï¥Î yield return (µ¥«İ)
-        /// 4.¨Ï¥Î StartCoroutine ±Ò°Ê
+        /// å”ç¨‹ä½¿ç”¨å››å€‹æ¢ä»¶
+        /// 1.å¼•ç”¨å‘½åç©ºé–“ System.Collections
+        /// 2.å®šç¾©ä¸€å€‹å‚³å› IEnumerator çš„æ–¹æ³•
+        /// 3.æ–¹æ³•å…§å¿…é ˆä½¿ç”¨ yield return (ç­‰å¾…)
+        /// 4.ä½¿ç”¨ StartCoroutine å•Ÿå‹•
 
-        /// ¦r¦ê string ¬° char °}¦C
-        private string testDialogue = "³o¸Ì¦n®£©Æ¡A§Ú·QÂ÷¶}...";
+        /// å­—ä¸² string ç‚º char é™£åˆ—
+        private string testDialogue = "é€™è£¡å¥½ææ€–ï¼Œæˆ‘æƒ³é›¢é–‹...";
 
         private void Awake()
         {
-            StartCoroutine(Test());
+            //StartCoroutine(Test());
 
-            print("¨ú±o´ú¸Õ¹ï¸Üªº²Ä¤@­Ó¦r:" + testDialogue[0]);
-            
-            StartCoroutine(ShowDialogue());
+            //print("å–å¾—æ¸¬è©¦å°è©±çš„ç¬¬ä¸€å€‹å­—:" + testDialogue[0]);
+
+            //StartCoroutine(ShowDialogue());
+
+            StartCoroutine(ShowDialogueUseFor());
         }
 
         private IEnumerator Test()
         {
-            print("<color=#33ff33>²Ä¤@¦æµ{¦¡</color>");
+            print("<color=#33ff33>ç¬¬ä¸€è¡Œç¨‹å¼</color>");
             yield return new WaitForSeconds(1);
-            print("<color=#ff3333>²Ä¤G¦æµ{¦¡</color>");
+            print("<color=#ff3333>ç¬¬äºŒè¡Œç¨‹å¼</color>");
             yield return new WaitForSeconds(2);
-            print("<color=#3333ff>²Ä¤G¦æµ{¦¡</color>");
+            print("<color=#3333ff>ç¬¬äºŒè¡Œç¨‹å¼</color>");
             yield return new WaitForSeconds(3);
         }
 
         private IEnumerator ShowDialogue()
         {
-            print("<color=#33ff33>²Ä¤@¦æµ{¦¡</color>");
+            print("<color=#33ff33>ç¬¬ä¸€è¡Œç¨‹å¼</color>");
             yield return new WaitForSeconds(0.1f);
-            print("<color=#ff3333>²Ä¤G¦æµ{¦¡</color>");
+            print("<color=#ff3333>ç¬¬äºŒè¡Œç¨‹å¼</color>");
             yield return new WaitForSeconds(0.1f);
-            print("<color=#3333ff>²Ä¤G¦æµ{¦¡</color>");
+            print("<color=#3333ff>ç¬¬äºŒè¡Œç¨‹å¼</color>");
             yield return new WaitForSeconds(0.1f);
         }
+
+        private IEnumerator ShowDialogueUseFor()
+        {
+            for (int i = 0; i < testDialogue.Length; i++)
+            {
+                print(testDialogue[i]);
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+
     }
 }
