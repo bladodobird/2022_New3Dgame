@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using System.Collections;
 
 namespace YIZU
 {
@@ -30,7 +31,32 @@ namespace YIZU
             textContent = GameObject.Find("對話者台詞").GetComponent<TextMeshProUGUI>();
             goTriangle = GameObject.Find("對話結束圖示");
             goTriangle.SetActive(false);
-        } 
+
+            StartCoroutine(FadeGroup());
+            StartCoroutine(TypeEffect());
+        }
         #endregion
+
+        /// <summary>
+        /// 淡入淡出
+        /// </summary>
+        private IEnumerator FadeGroup()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                groupDialogue.alpha += 0.1f;
+                yield return new WaitForSeconds(0.04f);
+            }
+        }
+
+        private IEnumerator TypeEffect()
+        {
+            textName.text = dialogueOpening.dialogueName;
+            textContent.text = "";
+
+            string dialogue = dialogueOpening.dialogueContents[0];
+
+            yield return dialogueInterval;
+        }
     }
 }
