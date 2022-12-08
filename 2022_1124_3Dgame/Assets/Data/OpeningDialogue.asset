@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49921bafcce903546bca11345d11c50d, type: 3}
   m_Name: OpeningDialogue
   m_EditorClassIdentifier: 
-  dialogueName: 
-  dialogueContents: []
+  dialogueName: vfff
+  dialogueContents:
+  - iiifew

@@ -26,7 +26,7 @@ namespace YIZU
         #region 事件
         private void Awake()
         {
-            //groupDialogue = GameObject.Find("畫布對話系統").GetComponent<CanvasGroup>();
+            groupDialogue = GameObject.Find("畫布對話系統").GetComponent<CanvasGroup>();
             textName = GameObject.Find("對話者名").GetComponent<TextMeshProUGUI>();
             textContent = GameObject.Find("對話者台詞").GetComponent<TextMeshProUGUI>();
             goTriangle = GameObject.Find("對話結束圖示");
@@ -56,7 +56,13 @@ namespace YIZU
 
             string dialogue = dialogueOpening.dialogueContents[0];
 
-            yield return dialogueInterval;
+            for (int i = 0; i < dialogue.Length; i++)
+            {
+                textContent.text += dialogue[i];
+                yield return dialogueInterval;
+            }
+
+            goTriangle.SetActive(true);
         }
     }
 }
