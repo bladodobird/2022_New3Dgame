@@ -26,7 +26,7 @@ namespace YIZU
         #region 事件
         private void Awake()
         {
-            groupDialogue = GameObject.Find("畫布對話系統").GetComponent<CanvasGroup>();
+            //groupDialogue = GameObject.Find("畫布對話系統").GetComponent<CanvasGroup>();
             textName = GameObject.Find("對話者名").GetComponent<TextMeshProUGUI>();
             textContent = GameObject.Find("對話者台詞").GetComponent<TextMeshProUGUI>();
             goTriangle = GameObject.Find("對話結束圖示");
