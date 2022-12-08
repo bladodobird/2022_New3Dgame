@@ -54,7 +54,7 @@ namespace YIZU
             textName.text = dialogueOpening.dialogueName;
             textContent.text = "";
 
-            string dialogue = dialogueOpening.dialogueContents[0];
+            string dialogue = dialogueOpening.dialogueContents[1];
 
             for (int i = 0; i < dialogue.Length; i++)
             {
