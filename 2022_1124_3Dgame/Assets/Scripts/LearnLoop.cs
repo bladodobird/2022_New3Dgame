@@ -14,12 +14,12 @@ namespace YIZU
             // for(初始值; 布林值 條件; 迴圈結束執行區域) {程式區塊}
             for (int i = 0; i < 10; i++)
             {
-                print("for 迴圈內容 :" + i);
+                print("for 迴圈內容 : " + i);
             }
 
             for (int number = 0; number < 5; number++)
             {
-                print("迴圈 :" + number);
+                print("迴圈 : " + number);
             }
         }
     }

@@ -20,11 +20,11 @@ namespace YIZU
 
         private void Awake()
         {
-            //StartCoroutine(Test());
+            // StartCoroutine(Test());
 
-            //print("取得測試對話的第一個字:" + testDialogue[0]);
+            // print("取得測試對話的第一個字: " + testDialogue[0]);
 
-            //StartCoroutine(ShowDialogue());
+            // StartCoroutine(ShowDialogue());
 
             StartCoroutine(ShowDialogueUseFor());
         }
@@ -41,11 +41,11 @@ namespace YIZU
 
         private IEnumerator ShowDialogue()
         {
-            print("<color=#33ff33>第一行程式</color>");
+            print(testDialogue[0]);
             yield return new WaitForSeconds(0.1f);
-            print("<color=#ff3333>第二行程式</color>");
+            print(testDialogue[1]);
             yield return new WaitForSeconds(0.1f);
-            print("<color=#3333ff>第二行程式</color>");
+            print(testDialogue[2]);
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -57,6 +57,5 @@ namespace YIZU
                 yield return new WaitForSeconds(0.2f);
             }
         }
-
     }
 }
