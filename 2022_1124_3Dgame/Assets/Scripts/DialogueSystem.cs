@@ -46,7 +46,7 @@ namespace YIZU
         {
             // 三元運算子 ?
             // 語法
-            // 布林值?假設 1:10, true ? 是1 ,false ? 是10
+            // 布林值?範例 1:10, true ? 是1 ,false ? 是10
 
             float increase = fadeIn ? +0.1f : -0.1f;
 
