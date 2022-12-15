@@ -51,30 +51,39 @@ namespace YIZU
             }
         }
 
+        /// <summary>
+        /// 打字效果
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator TypeEffect()
         {
             textName.text = dialogueOpening.dialogueName;
-            textContent.text = "";
 
-            string dialogue = dialogueOpening.dialogueContents[0];
-
-            for (int i = 0; i < dialogue.Length; i++)
+            for (int j = 0; j < dialogueOpening.dialogueContents.Length; j++)
             {
-                textContent.text += dialogue[i];
-                yield return dialogueInterval;
+                textContent.text = "";
+                goTriangle.SetActive(false);
+
+                string dialogue = dialogueOpening.dialogueContents[j];
+
+
+                for (int i = 0; i < dialogue.Length; i++)
+                {
+                    textContent.text += dialogue[i];
+                    yield return dialogueInterval;
+                }
+
+                goTriangle.SetActive(true);
+
+                // 如果玩家 還沒(!)按下 指定按鈕 就等待
+                while (!Input.GetKeyDown(dialogueKey))
+                {
+                    yield return null;
+                }
+
+                print("<color=#993300>玩家按下按鍵!</color>");
             }
-
-            goTriangle.SetActive(true);
-
-            // 如果玩家 還沒(!)按下 指定按鈕 就等待
-            while (!Input.GetKeyDown(dialogueKey))
-            {
-                yield return null;
-            }
-
-            print("<color=#993300>玩家按下按鍵!</color>");
         }
-
 
     }
 }
