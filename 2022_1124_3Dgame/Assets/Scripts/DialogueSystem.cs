@@ -14,6 +14,8 @@ namespace YIZU
         private float dialogueIntervalTime = 0.1f;
         [SerializeField, Header("開頭動畫")]
         private DialogueData dialogueOpening;
+        [SerializeField, Header("對話按鍵")]
+        private KeyCode dialogueKey = KeyCode.Space;
 
         private WaitForSeconds dialogueInterval => new WaitForSeconds(dialogueIntervalTime);
 
@@ -63,6 +65,16 @@ namespace YIZU
             }
 
             goTriangle.SetActive(true);
+
+            // 如果玩家 還沒(!)按下 指定按鈕 就等待
+            while (!Input.GetKeyDown(dialogueKey))
+            {
+                yield return null;
+            }
+
+            print("<color=#993300>玩家按下按鍵!</color>");
         }
+
+
     }
 }
