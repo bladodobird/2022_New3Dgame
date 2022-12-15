@@ -42,11 +42,17 @@ namespace YIZU
         /// <summary>
         /// 淡入淡出
         /// </summary>
-        private IEnumerator FadeGroup()
+        private IEnumerator FadeGroup(bool fadeIn = true)
         {
+            // 三元運算子 ?
+            // 語法
+            // 布林值?假設 1:10, true ? 是1 ,false ? 是10
+
+            float increase = fadeIn ? +0.1f : -0.1f;
+
             for (int i = 0; i < 10; i++)
             {
-                groupDialogue.alpha += 0.1f;
+                groupDialogue.alpha += increase;
                 yield return new WaitForSeconds(0.04f);
             }
         }
@@ -83,6 +89,8 @@ namespace YIZU
 
                 print("<color=#993300>玩家按下按鍵!</color>");
             }
+
+            StartCoroutine(FadeGroup(false));
         }
 
     }
