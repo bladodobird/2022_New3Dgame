@@ -1,32 +1,32 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace YIZU
 {
     /// <summary>
-    /// ¤¬°Ê¨t²Î:°»´úª±®aªº¶i¤J¨Ã°õ¦æ
+    /// äº’å‹•ç³»çµ±:åµæ¸¬ç©å®¶çš„é€²å…¥ä¸¦åŸ·è¡Œ
     /// </summary>
     public class interactableSystem : MonoBehaviour
     {
-        [SerializeField, Header("¹ï¸Ü¸ê®Æ")]
+        [SerializeField, Header("å°è©±è³‡æ–™")]
         private DialogueData dataDialogue;
 
         private string nameTarget = "PlayerCapsule";
 
-        // 3Dª«¥ó¾A¥Î
-        // ¨â­Ó¸I¼²ª«¨ä¤¤¤@­Ó¥²¶·¤Ä¿ï is trigger
-        // ¸I¼²¶}©l
+        // 3Dç‰©ä»¶é©ç”¨
+        // å…©å€‹ç¢°æ’ç‰©å…¶ä¸­ä¸€å€‹å¿…é ˆå‹¾é¸ is trigger
+        // ç¢°æ’é–‹å§‹
         private void OnTriggerEnter(Collider other)
         {
             print(other.name);
         }
 
-        // ¸I¼²µ²§ô
+        // ç¢°æ’çµæŸ
         private void OnTriggerExit(Collider other)
         {
 
         }
 
-        // ¸I¼²«ùÄò
+        // ç¢°æ’æŒçºŒ
         private void OnTriggerStay(Collider other)
         {
             
