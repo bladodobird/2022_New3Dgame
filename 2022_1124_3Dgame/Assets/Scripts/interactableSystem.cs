@@ -8,7 +8,7 @@ namespace YIZU
     public class interactableSystem : MonoBehaviour
     {
         [SerializeField, Header("對話資料")]
-        private DialogueData GetDialogue;
+        private DialogueData dataDialogue;
 
         private string nameTarget = "PlayerCapsule";
 
