@@ -45,6 +45,11 @@ namespace YIZU
         }
         #endregion
 
+        /// <summary>
+        /// 開始對話
+        /// </summary>
+        /// <param name="data">要執行的對話資料</param>
+        /// <param name="_onDialogueFinish">對話結束後的事件，可填空值</param>
         public void StartDialogue(DialogueData data, UnityEvent _onDialogueFinish = null)
         {
             playerInput.enabled = false;  // 關閉 玩家輸入元件
@@ -106,7 +111,9 @@ namespace YIZU
             StartCoroutine(FadeGroup(false));
 
             playerInput.enabled = true; // 開啟 玩家輸入元件
-            onDialogueFinish.Invoke(); // 對話結束事件,呼叫()
+
+            //? 當onDialogueFinish 沒有值時不執行
+            onDialogueFinish?.Invoke(); // 對話結束事件,呼叫()
         }
 
     }

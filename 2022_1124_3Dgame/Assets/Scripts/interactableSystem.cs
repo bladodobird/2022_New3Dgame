@@ -13,6 +13,11 @@ namespace YIZU
         [SerializeField, Header("對話結束後的事件")]
         private UnityEvent onDialogueFinish;  //增加unity事件
 
+        [SerializeField, Header("啟動道具")]
+        private GameObject propActive;
+        [SerializeField, Header("啟動後的對話資料")]
+        private DialogueData dataDialogueActive;
+
         private string nameTarget = "PlayerCapsule";
         private DialogueSystem dialogueSystem;
 
@@ -29,7 +34,16 @@ namespace YIZU
             if (other.name.Contains(nameTarget))
             {
                 print(other.name);
-                dialogueSystem.StartDialogue(dataDialogue, onDialogueFinish);
+
+                // 若無須啟動道具 或 啟動道具是顯示的 就職執行第一段對話
+                if (propActive == null || propActive.activeInHierarchy)
+                {
+                    dialogueSystem.StartDialogue(dataDialogue, onDialogueFinish);
+                }
+                else
+                {
+                    dialogueSystem.StartDialogue(dataDialogueActive);
+                }
             }
 
         }
