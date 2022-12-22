@@ -2,6 +2,7 @@
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace YIZU
 {
@@ -26,6 +27,7 @@ namespace YIZU
         private GameObject goTriangle;
         #endregion
 
+        private UnityEvent onDialogueFinish;
         private PlayerInput playerInput; //輸入玩家元件 (處理看完對話玩家才能移動部分)
 
         #region 事件
@@ -43,11 +45,12 @@ namespace YIZU
         }
         #endregion
 
-        public void StartDialogue(DialogueData data)
+        public void StartDialogue(DialogueData data, UnityEvent _onDialogueFinish = null)
         {
-            playerInput.enabled = false;  // 關閉玩家輸入元件
+            playerInput.enabled = false;  // 關閉 玩家輸入元件
             StartCoroutine(FadeGroup());
             StartCoroutine(TypeEffect(data));
+            onDialogueFinish = _onDialogueFinish;
         }
         /// <summary>
         /// 淡入淡出
@@ -102,7 +105,8 @@ namespace YIZU
 
             StartCoroutine(FadeGroup(false));
 
-            playerInput.enabled = true; //開啟 玩家輸入元件
+            playerInput.enabled = true; // 開啟 玩家輸入元件
+            onDialogueFinish.Invoke(); // 對話結束事件,呼叫()
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace YIZU
 {
@@ -9,6 +10,8 @@ namespace YIZU
     {
         [SerializeField, Header("對話資料")]
         private DialogueData dataDialogue;
+        [SerializeField, Header("對話結束後的事件")]
+        private UnityEvent onDialogueFinish;  //增加unity事件
 
         private string nameTarget = "PlayerCapsule";
         private DialogueSystem dialogueSystem;
@@ -26,7 +29,7 @@ namespace YIZU
             if (other.name.Contains(nameTarget))
             {
                 print(other.name);
-                dialogueSystem.StartDialogue(dataDialogue);
+                dialogueSystem.StartDialogue(dataDialogue, onDialogueFinish);
             }
 
         }
@@ -41,6 +44,14 @@ namespace YIZU
         private void OnTriggerStay(Collider other)
         {
 
+        }
+
+        /// <summary>
+        /// 隱藏物件
+        /// </summary>
+        public void HiddenObject()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
