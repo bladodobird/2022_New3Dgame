@@ -3580,7 +3580,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   propActive: {fileID: 11466820}
-  dataDialogueActive: {fileID: 0}
+  dataDialogueActive: {fileID: 11400000, guid: f8e3dc5059c200d4c9ad96c4c57bc9ed, type: 2}
   onDialogueFinishAfterActive:
     m_PersistentCalls:
       m_Calls:
