@@ -38,7 +38,7 @@ namespace YIZU
             {
                 print(other.name);
 
-                // 若無須啟動道具 或 啟動道具是顯示的 就職執行第一段對話
+                // 若無須啟動道具 或 啟動道具是顯示的 就執行第一段對話
                 if (propActive == null || propActive.activeInHierarchy)
                 {
                     dialogueSystem.StartDialogue(dataDialogue, onDialogueFinish);
