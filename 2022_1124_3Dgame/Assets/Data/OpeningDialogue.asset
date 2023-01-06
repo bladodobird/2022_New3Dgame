@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueName: "\u4F60"
   dialogueContents:
-  - Where the f is this
-  - Gotta get out of there
+  - "\u9019\u88E1\u662F\u54EA\u88E1"
+  - "\u597D\u51B7\u5594\uFF0C\u597D\u60F3\u51FA\u53BB"

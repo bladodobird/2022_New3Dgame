@@ -8,7 +8,7 @@ namespace YIZU
     /// </summary>
     public class interactableSystem : MonoBehaviour
     {
-        [SerializeField, Header("對話資料")]
+        [SerializeField, Header("第一段對話資料")]
         private DialogueData dataDialogue;
         [SerializeField, Header("對話結束後的事件")]
         private UnityEvent onDialogueFinish;  //增加unity事件

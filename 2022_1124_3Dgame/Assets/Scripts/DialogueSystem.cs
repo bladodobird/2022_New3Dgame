@@ -110,8 +110,8 @@ namespace YIZU
 
             StartCoroutine(FadeGroup(false));
 
-            playerInput.enabled = true; // 開啟 玩家輸入元件
-            onDialogueFinish?.Invoke(); // 對話結束事件,呼叫() ? 當onDialogueFinish 沒有執行不執行
+            playerInput.enabled = true;      // 開啟 玩家輸入元件
+            onDialogueFinish?.Invoke();      // 對話結束事件,呼叫() ? 當onDialogueFinish 沒有執行不執行
         }
 
     }
